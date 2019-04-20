@@ -7,7 +7,7 @@
 class IoTHub
 {
   public:
-    void postMessage(JsonObject &json);
+    void postMessage(JsonDocument &doc);
     String getLastMessage(String deviceId);
     String getLastMessageValue(String deviceId, String tag);
 };

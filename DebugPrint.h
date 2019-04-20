@@ -7,7 +7,8 @@
     #define DebugPrintHEX(text) Serial.print(text, HEX)
     #define DebugPrintln(text) Serial.println(text)
     #define DebugPrintlnHEX(text) Serial.println(text, HEX)
-    #define DebugPrettyPrintToSerial(jobj) jobj.prettyPrintTo(Serial)
+    #define DebugPrettyPrintToSerial(jobj) serializeJsonPretty(jobj, Serial);\
+        Serial.println()
 #else
     #define DebugBegin(rate)
     #define DebugPrint(text)

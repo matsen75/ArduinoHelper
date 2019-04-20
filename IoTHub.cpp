@@ -10,7 +10,7 @@
 #define HOST "192.168.1.150"
 #define PORT 5000
 
-void IoTHub::postMessage(JsonObject &json)
+void IoTHub::postMessage(JsonDocument &doc)
 {
     HTTPClient http;
 
@@ -21,7 +21,7 @@ void IoTHub::postMessage(JsonObject &json)
     }
     
     String output;
-    json.printTo(output);
+    serializeJson(doc, output);
 
     http.addHeader("Content-Type", "application/json");
     int response = http.POST(output);
