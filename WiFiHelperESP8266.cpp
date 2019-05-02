@@ -1,3 +1,4 @@
+#ifndef ARDUINO_ESP32_DEV
 #include <Global.h>
 #include "WiFiHelper.h"
 #include <Arduino.h>
@@ -147,3 +148,5 @@ void WiFiHelper::reset()
         delay(500);
     }
 }
+
+#endif

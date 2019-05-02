@@ -1,7 +1,11 @@
 #include <Global.h>
 #include "IoTHub.h"
 #include <Arduino.h>
+#ifdef ARDUINO_ESP32_DEV
+#include <HTTPClient.h>
+#else
 #include <ESP8266HTTPClient.h>
+#endif
 #include <DebugPrint.h>
 
 // #define HOST "192.168.1.13"

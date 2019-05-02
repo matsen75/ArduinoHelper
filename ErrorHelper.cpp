@@ -28,12 +28,20 @@ void ErrorBlinkLoop(char *msg, int freq)
 {
     Serial.println(msg);
     pinMode(LED_BUILTIN, OUTPUT);
+#ifdef ARDUINO_ESP32_DEV
+    BlinkLoop(LED_BUILTIN, HIGH, LOW, freq, 0xFFFF);
+#else
     BlinkLoop(LED_BUILTIN, LOW, HIGH, freq, 0xFFFF);
+#endif
 }
 
 void ErrorBlink(char *msg, int freq, int times)
 {
     Serial.println(msg);
     pinMode(LED_BUILTIN, OUTPUT);
+#ifdef ARDUINO_ESP32_DEV
+    BlinkLoop(LED_BUILTIN, HIGH, LOW, freq, times);
+#else
     BlinkLoop(LED_BUILTIN, LOW, HIGH, freq, times);
+#endif
 }
