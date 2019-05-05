@@ -4,6 +4,13 @@
 #include <Arduino.h>
 
 // #define _DEBUGPRINT
-// static const uint8_t LED_BUILTIN = 2;
+
+#ifndef BUILTIN_LED
+#ifdef ARDUINO_ESP32_DEV
+#define BUILTIN_LED 2
+#else
+#define BUILTIN_LED LED_BUILTIN
+#endif
+#endif
 
 #endif
